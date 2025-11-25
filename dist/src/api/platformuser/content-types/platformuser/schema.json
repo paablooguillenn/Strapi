@@ -1,0 +1,46 @@
+{
+    "kind": "collectionType",
+    "collectionName": "platformusers",
+    "info": {
+        "singularName": "platformuser",
+        "pluralName": "platformusers",
+        "displayName": "Platform User"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "email": {
+            "type": "email",
+            "required": true,
+            "unique": true
+        },
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "role": {
+            "type": "enumeration",
+            "enum": [
+                "ADMIN",
+                "OWNER",
+                "USER"
+            ]
+        },
+        "scope": {
+            "type": "enumeration",
+            "default": "WORKSPACE",
+            "enum": [
+                "AGENCY",
+                "WORKSPACE"
+            ]
+        },
+        "workspace": {
+            "type": "relation",
+            "relation": "manyToOne",
+            "target": "api::workspace.workspace",
+            "inversedBy": "platform_users"
+        }
+    }
+}

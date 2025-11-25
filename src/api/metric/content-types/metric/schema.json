@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "metrics",
+  "info": {
+    "singularName": "metric",
+    "pluralName": "metrics",
+    "displayName": "Metric"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "calculationType": {
+      "type": "enumeration",
+      "enum": [
+        "MANUAL",
+        "SUM",
+        "AVERAGE",
+        "API",
+        "OTHER"
+      ]
+    },
+    "unit": {
+      "type": "string"
+    },
+    "definitionSchema": {
+      "type": "json"
+    },
+    "value": {
+      "type": "integer"
+    },
+    "workspace": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workspace.workspace",
+      "inversedBy": "metrics"
+    },
+    "project": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::project.project",
+      "inversedBy": "metrics"
+    },
+    "edition": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::edition.edition",
+      "inversedBy": "metrics"
+    },
+    "subphase": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::subphase.subphase",
+      "inversedBy": "metrics"
+    }
+  }
+}

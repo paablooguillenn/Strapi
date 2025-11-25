@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "applications",
+  "info": {
+    "singularName": "application",
+    "pluralName": "applications",
+    "displayName": "Application"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "code": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "appStatus": {
+      "type": "enumeration",
+      "default": "ACTIVE",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    },
+    "workspace_applications": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::workspace-application.workspace-application",
+      "mappedBy": "application"
+    }
+  }
+}

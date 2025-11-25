@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "workspace_applications",
+  "info": {
+    "singularName": "workspace-application",
+    "pluralName": "workspace-applications",
+    "displayName": "workspaceApplication"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "workspaceApplicationStatus": {
+      "type": "enumeration",
+      "default": "ACTIVE",
+      "enum": [
+        "ACTIVE",
+        "INACTIVE"
+      ]
+    },
+    "config": {
+      "type": "json"
+    },
+    "workspace": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::workspace.workspace",
+      "inversedBy": "workspace_applications"
+    },
+    "application": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::application.application",
+      "inversedBy": "workspace_applications"
+    }
+  }
+}

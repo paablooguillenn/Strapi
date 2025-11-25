@@ -1,0 +1,45 @@
+{
+    "kind": "collectionType",
+    "collectionName": "workspaces",
+    "info": {
+        "singularName": "workspace",
+        "pluralName": "workspaces",
+        "displayName": "workspace"
+    },
+    "options": {
+        "draftAndPublish": true
+    },
+    "pluginOptions": {},
+    "attributes": {
+        "name": {
+            "type": "string",
+            "required": true
+        },
+        "platformStatus": {
+            "type": "enumeration",
+            "default": "ACTIVE",
+            "enum": [
+                "ACTIVE",
+                "INACTIVE"
+            ]
+        },
+        "platform_users": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::platformuser.platformuser",
+            "mappedBy": "workspace"
+        },
+        "metrics": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::metric.metric",
+            "mappedBy": "workspace"
+        },
+        "workspace_applications": {
+            "type": "relation",
+            "relation": "oneToMany",
+            "target": "api::workspace-application.workspace-application",
+            "mappedBy": "workspace"
+        }
+    }
+}

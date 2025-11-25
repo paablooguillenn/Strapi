@@ -1,0 +1,21 @@
+# Strapi build and cache
+.cache/
+build/
+
+# Node modules
+node_modules/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
+npm-debug.log
+
+# macOS system files
+.DS_Store
+
+# Temporary files
+.tmp/
+temp/
